@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  touch-action: none; /* zapobiega przewijaniu na mobilnym */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#renameImage {
+  animation: blink 1s step-end infinite;
+}
+
+img {
+  width: 80vw;
+  max-width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#letterContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#letterText {
+  position: absolute;
+  color: black;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  max-width: 75%;
+  top: 52%;
+  transform: translateY(-50%);
+}
+
+#mailboxImage {
+  width: 80vw;
+  max-width: 500px;
+  height: auto;
+  cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  #letterText {
+    font-size: 14px;
+    max-width: 80%;
+  }
+}
+
+@keyframes openLetter {
+  0% {
+    transform: scale(0.7) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateX(0);
+    opacity: 1;
+  }
+}
+
+.open-animation {
+  animation: openLetter 0.6s ease-out forwards;
+}
+
+#letterText::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+
+
+
+
